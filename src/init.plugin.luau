@@ -1,5 +1,6 @@
 local AssetService = game:GetService("AssetService")
 local RunService = game:GetService("RunService")
+local RuntimeScriptService = game:GetService("RuntimeScriptService")
 
 local XY = Vector3.new(1, 1)
 
@@ -108,11 +109,13 @@ end
 -- Main
 local function init()
 	local toolbar = plugin:CreateToolbar("Google Balls")
+
 	local button = toolbar:CreateButton("Google Balls", "Google Balls", "rbxasset://textures/balls.png")
+	button.ClickableWhenViewportHidden = true
 
 	local widget = plugin:CreateDockWidgetPluginGuiAsync("GoogleBalls", DockWidgetPluginGuiInfo.new(
 		Enum.InitialDockState.Float,
-		true,
+		false,
 		false,
 		360,
 		130
@@ -185,4 +188,6 @@ local function init()
 	end)
 end
 
-init()
+if RunService:IsEdit() then
+	init()
+end

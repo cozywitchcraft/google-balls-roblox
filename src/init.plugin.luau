@@ -1,6 +1,5 @@
 local AssetService = game:GetService("AssetService")
 local RunService = game:GetService("RunService")
-local RuntimeScriptService = game:GetService("RuntimeScriptService")
 
 local XY = Vector3.new(1, 1)
 
